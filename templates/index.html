@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Document</title>
+
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <h1>Welcome to the home page!</h1>
+
+    <p>View, loan, and return books all from one page!</p>
+
+    <div>
+        <h1>Who is loaning the book?</h1>
+        <br><br>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-4">
+                <div class="list-group" id="list-tab" role="tablist">
+                    {%for customer in customer%}
+                    <a class="list-group-item list-group-item-action" id="list-home-list" data-bs-toggle="list"
+                        href="#list-home" role="tab" aria-controls="list-home">{{customer.name}}</a>
+                    {%endfor%}
+                </div>
+            </div>
+            <div class="tab-content" id="nav-tabContent">
+                <br><br>
+                <div class="tab-pane fade" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                    <div class="row row-cols-1 row-cols-md-6 g-4 d-flex justify-content-center">
+                        {%for book in book%}
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="https://picsum.photos/id/{{book.value}}/200/" class="card-img-top"
+                                    alt="image">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{book.name}}</h5>
+                                    <p class="card-text">Book description</p>
+                                    <div class="list-group" id="list-tab" role="tablist"></div>
+                                    <a class="list-group-item list-group-item-action" id="list-home-list"
+                                        data-bs-toggle="list" href="#list-home" role="tab"
+                                        aria-controls="list-home">{{book.name}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
